@@ -6,8 +6,13 @@ import com.muciaccia.bot.pojo.PersonInfo;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * An implementation of the DataManager interface.
+ */
 public class DataManagerImpl implements DataManager {
+    // a set with all the participants
     private final Set<Person> participants;
+    // a map with the absentees and the dates they were absent
     private final Map<Person, PersonInfo> absentees;
 
     public DataManagerImpl() {

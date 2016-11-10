@@ -1,5 +1,8 @@
 package com.muciaccia.bot.pojo;
 
+/**
+ * A container for a name, used to represent a participant in the group.
+ */
 public class Person {
     private final String name;
 

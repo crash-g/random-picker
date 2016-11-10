@@ -23,6 +23,9 @@ public class App {
         run();
     }
 
+    /**
+     * This method runs the application loop. Normally it runs until the user uses the QUIT command.
+     */
     private static void run() {
         BufferedReader br = new BufferedReader(new InputStreamReader(INPUT_STREAM));
         try {

@@ -22,8 +22,13 @@ import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.stream.Stream;
 
+/**
+ * This class contains the methods that process the user input.
+ */
 public class InputParser {
+    // separator for a list of arguments
     private static final char SEPARATOR = ',';
+    // system-specific new line
     private static final String NEW_LINE = System.getProperty("line.separator");
 
     private final PrintStream printStream;
@@ -39,6 +44,12 @@ public class InputParser {
         INSTRUCTIONS = makeInstructions();
     }
 
+    /**
+     * This method parses the input calling the appropriate methods according to the command.
+     *
+     * @param input the user input to parse.
+     * @throws QuitException if the user uses the QUIT command.
+     */
     public void parseInput(final String input) throws QuitException {
         CommandEnum chosenCommand = null;
         Matcher matcher = null;
@@ -87,6 +98,7 @@ public class InputParser {
             printStream.println("Comando non supportato.");
         }
     }
+
 
     private void writeChanges(final String names, Consumer<String> writeMethod) {
         List<String> namesList = parseNameList(names);
@@ -180,7 +192,13 @@ public class InputParser {
         return sb.toString();
     }
 
-
+    /**
+     * This method parses a list of names.
+     *
+     * @param names a list of names, containing spaces and unicode characters, separated by SEPARATOR.
+     *              Names are trimmed and empty ones are ignored.
+     * @return a list of strings, one for each name.
+     */
     private List<String> parseNameList(final String names) {
         List<String> namesList = new ArrayList<>();
         int fromIndex = 0;
